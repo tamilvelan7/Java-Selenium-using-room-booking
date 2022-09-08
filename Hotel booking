@@ -18,11 +18,14 @@ public class Aactin_Login {
 	public static void main(String[] args) throws InterruptedException, IOException {
 		System.setProperty("webdriver.gecko.driver",
 				"C:\\Users\\tamil\\eclipse-workspace\\Selenium Testing\\Firefoxdriver\\geckodriver.exe");
+		//aactin driver reference name
 		WebDriver aactin = new FirefoxDriver();
 		aactin.get("http://adactinhotelapp.com/index.php");
+		//login page
 		aactin.findElement(By.id("username")).sendKeys("TamilvelanM");
 		aactin.findElement(By.id("password")).sendKeys("Tamil@123");
 		aactin.findElement(By.id("login")).click();
+		//page one 
 		Map<String, Integer> ind_ids = new HashMap();
 		ind_ids.put("location", 8);
 		ind_ids.put("hotels", 2);
@@ -44,9 +47,10 @@ public class Aactin_Login {
 		findElement1.clear();
 		findElement1.sendKeys("29/08/2022");
 		aactin.findElement(By.xpath("//input[@name='Submit']")).click();
-		aactin.findElement(By.id("radiobutton_0")).click();
+		//page two
 		aactin.findElement(By.id("radiobutton_0")).click();
 		aactin.findElement(By.id("continue")).click();
+		//page three
 		aactin.findElement(By.name("first_name")).sendKeys("Tamilvelan");
 		aactin.findElement(By.id("last_name")).sendKeys("M");
 		aactin.findElement(By.id("address")).sendKeys("No.33, Ranganadhan Street,\nPallavaram\nChennai-43");
@@ -63,6 +67,7 @@ public class Aactin_Login {
 		loc2.selectByVisibleText("2022");
 		aactin.findElement(By.id("book_now")).click();
 		Thread.sleep(7000);
+		//page four booking conformed
 		aactin.findElement(By.id("my_itinerary")).click();
 		TakesScreenshot ss=(TakesScreenshot)aactin;
 		File from = ss.getScreenshotAs(OutputType.FILE);
